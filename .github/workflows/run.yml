@@ -1,35 +1,35 @@
-name: SSH Login
+名字: SSH登录
 
-on:
-  schedule:
-    - cron: '0 11 */7 * *'  # 每七天的晚上9点运行一次
-  workflow_dispatch:
+在:
+日程安排:
+    - 时间单位: '0 11 */7 * *'  # 每七天的晚上9点运行一次
+工作流_调度:
 
-jobs:
-  ssh-login:
-    runs-on: ubuntu-latest
+工作:
+ssh-登录:
+连续运行: Ubuntu-最新版
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+步伐:
+      - 名字: 签出存储库
+使用: 动作/签出@v2
       
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+      - 名字: 设置Python
+使用: 操作/设置-python@v2
+随着:
+python版本: 3.x '
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install paramiko requests
+      - 名字: 安装依赖项
+奔跑: |
+python -m pip安装-升级pip
+pip安装paramiko请求
       
-      - name: Run Python script
-        env:
-          SSH_INFO: ${{ secrets.SSH_INFO }}
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          MAIL: ${{ secrets.MAIL }}
-          PUSH: ${{ secrets.PUSH }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      - 名字: 运行Python脚本
+包封/包围（动词envelop的简写）:
+SSH_INFO: ${{秘密。SSH_INFO}}
+PUSHPLUS_TOKEN: ${{秘密。PUSHPLUS_TOKEN}}
+邮件: ${{x431sz@qq.com.MAIL}}
+推: ${{秘密。推}}
+电报_聊天_ID: ${{秘密。电报_聊天_ID}}
+电报_机器人_令牌: ${{秘密。电报_机器人_令牌}}
           
-        run: python run.py
+奔跑: python run.py
